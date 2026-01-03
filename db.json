@@ -1,0 +1,128 @@
+{
+  "users": [],
+  "workouts": [
+    {
+      "id": "60869846-0c84-44d4-ab50-de40878999d6",
+      "userId": "409455f8-0e72-4deb-abc9-6d18947aded2",
+      "date": "2026-01-03",
+      "type": "strength",
+      "durationMin": 30,
+      "rpe": 6,
+      "notes": "merda",
+      "createdAt": "2026-01-03T00:55:07.092Z"
+    },
+    {
+      "id": "7f597eba-f134-49aa-9448-a86802d40ac5",
+      "userId": "409455f8-0e72-4deb-abc9-6d18947aded2",
+      "date": "2026-01-03",
+      "type": "strength",
+      "durationMin": 35,
+      "rpe": 9,
+      "notes": "A pila do nuno silva tem mel e avelã.",
+      "createdAt": "2026-01-03T01:17:59.089Z"
+    },
+    {
+      "id": "0abbdb84-d8e5-48f8-a3b0-d66b10cc51f5",
+      "userId": "97fbc664-e571-4880-bf32-6622d123daf0",
+      "date": "2026-01-03",
+      "type": "strength",
+      "durationMin": 30,
+      "rpe": 6,
+      "notes": "lala",
+      "createdAt": "2026-01-03T01:23:23.114Z"
+    },
+    {
+      "id": "7b5321cf-f3ca-49d2-b70a-861b88ed8ef0",
+      "userId": "97fbc664-e571-4880-bf32-6622d123daf0",
+      "date": "2026-01-03",
+      "type": "strength",
+      "durationMin": 30,
+      "rpe": 6,
+      "notes": "testeeee",
+      "createdAt": "2026-01-03T01:27:21.916Z"
+    },
+    {
+      "id": "4a3d6236-f808-427a-bdea-24df5aa91899",
+      "userId": "97fbc664-e571-4880-bf32-6622d123daf0",
+      "date": "2026-01-03",
+      "type": "strength",
+      "durationMin": 80,
+      "rpe": 10,
+      "notes": "2",
+      "createdAt": "2026-01-03T02:28:37.814Z"
+    }
+  ],
+  "workoutExercises": [],
+  "dailyLogs": [],
+  "goals": [],
+  "challenges": [],
+  "userChallenges": [],
+  "badges": [],
+  "userBadges": [],
+  "xpEvents": [
+    {
+      "id": "ffd710d4-0379-478a-8076-487eea2a0624",
+      "userId": "97fbc664-e571-4880-bf32-6622d123daf0",
+      "sourceType": "workout",
+      "sourceId": "4849a7fa-e466-4f8f-8461-e209c3821600",
+      "xp": 26,
+      "createdAt": "2026-01-03T01:44:13.071Z"
+    },
+    {
+      "id": "8865a26b-8a23-4c53-a60c-913c29165bf2",
+      "userId": "97fbc664-e571-4880-bf32-6622d123daf0",
+      "sourceType": "workout",
+      "sourceId": "4849a7fa-e466-4f8f-8461-e209c3821600",
+      "xp": 26,
+      "createdAt": "2026-01-03T01:44:13.077Z"
+    },
+    {
+      "id": "a450934c-56cc-4450-8d33-c45f74f100b8",
+      "userId": "97fbc664-e571-4880-bf32-6622d123daf0",
+      "sourceType": "workout",
+      "sourceId": "e997c9ec-76f7-4e8f-ae2a-e3771fffa1f8",
+      "xp": 26,
+      "createdAt": "2026-01-03T01:44:23.573Z"
+    },
+    {
+      "id": "9bb277ef-b745-460c-a765-48d8ea0b44b5",
+      "userId": "97fbc664-e571-4880-bf32-6622d123daf0",
+      "sourceType": "workout",
+      "sourceId": "e997c9ec-76f7-4e8f-ae2a-e3771fffa1f8",
+      "xp": 26,
+      "createdAt": "2026-01-03T01:44:23.579Z"
+    },
+    {
+      "id": "02177a77-0144-401f-8ca2-25464e02477a",
+      "userId": "97fbc664-e571-4880-bf32-6622d123daf0",
+      "sourceType": "workout",
+      "sourceId": "cb5b177c-2523-4f16-ab6f-eb80d3587f69",
+      "xp": 26,
+      "createdAt": "2026-01-03T01:50:17.942Z"
+    },
+    {
+      "id": "a82f1651-2b8c-4326-9674-37907304c7f2",
+      "userId": "97fbc664-e571-4880-bf32-6622d123daf0",
+      "sourceType": "workout",
+      "sourceId": "cb5b177c-2523-4f16-ab6f-eb80d3587f69",
+      "xp": 26,
+      "createdAt": "2026-01-03T01:50:17.947Z"
+    },
+    {
+      "id": "21547935-d551-4708-98e6-b3cb2e341f9f",
+      "userId": "97fbc664-e571-4880-bf32-6622d123daf0",
+      "sourceType": "workout",
+      "sourceId": "4a3d6236-f808-427a-bdea-24df5aa91899",
+      "xp": 26,
+      "createdAt": "2026-01-03T02:28:37.822Z"
+    },
+    {
+      "id": "ac60cdd3-9d5f-4806-9cf5-41043e219d70",
+      "userId": "97fbc664-e571-4880-bf32-6622d123daf0",
+      "sourceType": "workout",
+      "sourceId": "4a3d6236-f808-427a-bdea-24df5aa91899",
+      "xp": 26,
+      "createdAt": "2026-01-03T02:28:37.828Z"
+    }
+  ]
+}
