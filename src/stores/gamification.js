@@ -20,29 +20,37 @@ export const useGamificationStore = defineStore('gamification', {
     },
 
     async awardWorkoutXp(workout) {
-        const auth = useAuthStore()
+      const auth = useAuthStore()
 
-        if (!auth.user?.id) {
-            throw new Error('Sem sessão no awardWorkoutXp (auth.user.id vazio).')
-        }
+      console.log('[awardWorkoutXp] start', { user: auth.user, workoutId: workout?.id })
 
-        const xp = calculateWorkoutXp(workout)
-        const event = {
-            id: crypto.randomUUID(),
-            userId: auth.user.id,
-            sourceType: 'workout',
-            sourceId: workout.id,
-            xp,
-            createdAt: new Date().toISOString()
-        }
+      if (!auth.user?.id) {
+        console.log('[awardWorkoutXp] NO AUTH USER ID')
+        throw new Error('Sem sessão: auth.user.id vazio ao atribuir XP.')
+      }
 
-        const res = await api.post('/xpEvents', event)
-        console.log('XP EVENT POST RES', res.status, res.data)
+      const xp = calculateWorkoutXp(workout)
 
-        this.events.unshift(res.data)
-        this.xp += xp
-        this.level = levelFromXp(this.xp)
-        }
+      const event = {
+        id: crypto.randomUUID(),
+        userId: auth.user.id,
+        sourceType: 'workout',
+        sourceId: workout.id,
+        xp,
+        createdAt: new Date().toISOString()
+      }
+
+      console.log('[awardWorkoutXp] POST /xpEvents', event)
+
+      const res = await api.post('/xpEvents', event)
+
+      console.log('[awardWorkoutXp] POST OK', res.status, res.data)
+
+      this.events.unshift(res.data)
+      this.xp += xp
+      this.level = levelFromXp(this.xp)
+    }
+
 
   }
 })

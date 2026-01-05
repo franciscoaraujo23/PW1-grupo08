@@ -4,6 +4,7 @@ import { useAuthStore } from './auth'
 import { useUiStore } from './ui'
 import { useGamificationStore } from './gamification'
 
+
 export const useWorkoutStore = defineStore('workouts', {
   state: () => ({
     items: [],
@@ -46,8 +47,10 @@ export const useWorkoutStore = defineStore('workouts', {
 
       const { data } = await api.post('/workouts', workout)
       this.items.unshift(data)
-      const gamification = useGamificationStore()
-      await gamification.awardWorkoutXp(data)
+
+      const g = useGamificationStore()
+      await g.awardWorkoutXp(data)
+
       return data
     },
     
@@ -60,8 +63,36 @@ export const useWorkoutStore = defineStore('workouts', {
     },
 
     async remove(id) {
-      await api.delete(`/workouts/${id}`)
-      this.items = this.items.filter(w => w.id !== id)
+      const ui = useUiStore()
+      const g = useGamificationStore()
+
+      try {
+        ui.setLoading(true)
+
+        // 1) apagar workout
+        await api.delete(`/workouts/${id}`)
+        this.items = this.items.filter(w => w.id !== id)
+
+        // 2) buscar xpEvents desse workout
+        const { data: events } = await api.get(`/xpEvents?sourceType=workout&sourceId=${id}`)
+
+        // 3) apagar 1 a 1 (mais fiável que Promise.all em debug)
+        for (const ev of events) {
+          await api.delete(`/xpEvents/${ev.id}`)
+        }
+
+        // 4) recalcular XP/level
+        await g.fetchMine()
+
+        ui.showToast('success', `Workout apagado. Removi ${events.length} xpEvent(s).`)
+      } catch (e) {
+        console.error('REMOVE WORKOUT ERROR', e)
+        ui.showToast('error', e?.message || 'Erro ao apagar workout.')
+        throw e
+      } finally {
+        ui.setLoading(false)
+      }
     }
+
   }
 })

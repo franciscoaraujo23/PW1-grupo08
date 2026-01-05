@@ -2,7 +2,6 @@
 import { computed, ref, watch } from 'vue'
 import { useWorkoutStore } from '../stores/workouts'
 import { useUiStore } from '../stores/ui'
-import { useGamificationStore } from '../stores/gamification'
 
 const props = defineProps({
   modelValue: { type: Object, default: null } // workout a editar (ou null para criar)
@@ -12,7 +11,6 @@ const emit = defineEmits(['update:modelValue', 'saved'])
 
 const store = useWorkoutStore()
 const ui = useUiStore()
-const gamification = useGamificationStore()
 
 const isEditing = computed(() => !!props.modelValue?.id)
 
@@ -82,7 +80,6 @@ async function submit() {
         notes: notes.value
       })
 
-      await gamification.awardWorkoutXp(created)
       ui.showToast('success', 'Workout criado + XP atribuído.')
       notes.value = ''
       emit('saved', { mode: 'create', workout: created })
