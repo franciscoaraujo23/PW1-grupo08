@@ -2,7 +2,22 @@
   "users": [],
   "workouts": [],
   "workoutExercises": [],
-  "dailyLogs": [],
+  "dailyLogs": [
+    {
+      "id": "a0b72cf3-2aa3-47e5-a83e-11413da8ba97",
+      "userId": "7149b77a-4729-48c8-884c-8db5678b0dd5",
+      "date": "2026-01-10",
+      "sleepHrs": 1,
+      "waterMl": 2000,
+      "steps": 400,
+      "weightKg": 40,
+      "mood": 1,
+      "energy": 1,
+      "notes": "",
+      "createdAt": "2026-01-10T17:16:35.126Z",
+      "updatedAt": "2026-01-10T17:16:35.126Z"
+    }
+  ],
   "goals": [],
   "challenges": [],
   "userChallenges": [],
