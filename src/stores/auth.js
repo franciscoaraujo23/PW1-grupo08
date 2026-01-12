@@ -1,4 +1,6 @@
 import { defineStore } from 'pinia'
+import { registerUser, loginUser } from '../services/authApi'
+
 
 const SESSION_KEY = 'ft_auth_v1'
 const USERS_KEY = 'ft_users_v1'
@@ -6,6 +8,8 @@ const USERS_KEY = 'ft_users_v1'
 function safeJsonParse(value) {
   try { return JSON.parse(value) } catch { return null }
 }
+
+// PRECISA DE LIMPEZA -----------------------------------
 
 function loadUsers() {
   const raw = localStorage.getItem(USERS_KEY)
@@ -53,54 +57,30 @@ export const useAuthStore = defineStore('auth', {
       localStorage.removeItem(SESSION_KEY)
     },
 
-    register({ name, email, password }) {
+    async register({ name, email, password }) {
       if (!name || !email || !password) throw new Error('Preenche todos os campos.')
 
-      const normalized = email.trim().toLowerCase()
-      const users = loadUsers()
+      const user = await registerUser({ name, email, password })
 
-      if (users.some(u => u.email === normalized)) {
-        throw new Error('Este email já existe.')
-      }
-
-      const role = normalized.includes('admin') ? 'admin' : 'user'
-
-      const newUser = {
-        id: crypto.randomUUID(),
-        name: name.trim(),
-        email: normalized,
-        password, // mock
-        role,
-        createdAt: new Date().toISOString()
-      }
-
-      users.push(newUser)
-      saveUsers(users)
-
-      this.user = { id: newUser.id, name: newUser.name, email: newUser.email, role: newUser.role }
+      this.user = { id: user.id, name: user.name, email: user.email, role: user.role }
       this.token = `mock_${crypto.randomUUID()}`
       this.persist()
-
       return this.user
     },
 
-    login({ email, password }) {
+    async login({ email, password }) {
       if (!email || !password) throw new Error('Email e password são obrigatórios.')
 
-      const normalized = email.trim().toLowerCase()
-      const users = loadUsers()
+      const user = await loginUser({ email, password })
 
-      const found = users.find(u => u.email === normalized && u.password === password)
-      if (!found) throw new Error('Credenciais inválidas.')
-
-      this.user = { id: found.id, name: found.name, email: found.email, role: found.role }
+      this.user = { id: user.id, name: user.name, email: user.email, role: user.role }
       this.token = `mock_${crypto.randomUUID()}`
       this.persist()
-
       return this.user
     },
 
-    // opcional: utilitário para debug (não obrigatório)
+
+    // opcional: utilitário para debug 
     listUsers() {
       return loadUsers().map(u => ({ id: u.id, email: u.email, role: u.role }))
     }

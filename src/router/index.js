@@ -21,7 +21,13 @@ const routes = [
   { path: '/challenges', name: 'challenges', component: ChallengesView, meta: { requiresAuth: true } },
 
   { path: '/admin', name: 'admin', component: AdminView, meta: { requiresAuth: true, requiresAdmin: true } },
-
+  {
+  path: '/admin/challenges',
+  name: 'admin-challenges',
+  component: () => import('../views/AdminChallengesView.vue'),
+  meta: { requiresAuth: true, requiresAdmin: true }
+}
+  ,
   { path: '/:pathMatch(.*)*', redirect: '/dashboard' }
 ]
 

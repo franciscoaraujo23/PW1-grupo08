@@ -12,11 +12,11 @@ const email = ref('')
 const password = ref('')
 const error = ref('')
 
-function submit() {
+async function submit() {
   error.value = ''
   try {
     ui.setLoading(true)
-    auth.login({ email: email.value, password: password.value })
+    await auth.login({ email: email.value, password: password.value })
     ui.showToast('success', 'Sessão iniciada.')
     router.push('/dashboard')
   } catch (e) {

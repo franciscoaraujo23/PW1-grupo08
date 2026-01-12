@@ -17,6 +17,8 @@ function logout() {
   auth.logout()
   router.push('/login')
 }
+
+
 </script>
 
 <template>
@@ -29,7 +31,7 @@ function logout() {
         <a @click.prevent="go('/workouts')">Workouts</a>
         <a @click.prevent="go('/daily')">Daily</a>
         <a @click.prevent="go('/challenges')">Challenges</a>
-        <a v-if="isAdmin" @click.prevent="go('/admin')">Admin</a>
+        <a v-if="isAdmin" @click.prevent="go('/admin/challenges')">Admin</a>
       </nav>
 
       <div class="right">

@@ -13,11 +13,11 @@ const email = ref('')
 const password = ref('')
 const error = ref('')
 
-function submit() {
+async function submit() {
   error.value = ''
   try {
     ui.setLoading(true)
-    auth.register({ name: name.value, email: email.value, password: password.value })
+    await auth.register({ name: name.value, email: email.value, password: password.value })
     ui.showToast('success', 'Conta criada.')
     router.push('/dashboard')
   } catch (e) {

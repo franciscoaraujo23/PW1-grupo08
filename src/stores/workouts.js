@@ -34,6 +34,10 @@ export const useWorkoutStore = defineStore('workouts', {
       const auth = useAuthStore()
       if (!auth.user?.id) throw new Error('Sem sessão.')
 
+      if (payload.type === 'run' && payload.distanceKm !== '' && Number(payload.distanceKm) <= 0) {
+        throw new Error('Distância inválida.')
+      }
+      
       const workout = {
         id: crypto.randomUUID(),
         userId: auth.user.id,
@@ -41,6 +45,7 @@ export const useWorkoutStore = defineStore('workouts', {
         type: payload.type,           // 'strength' | 'run' | ...
         durationMin: Number(payload.durationMin),
         rpe: Number(payload.rpe),
+        distanceKm: payload.type === 'run' && payload.distanceKm !== '' ? Number(payload.distanceKm) : null,
         notes: payload.notes || '',
         createdAt: new Date().toISOString()
       }

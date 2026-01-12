@@ -2,6 +2,8 @@ import { defineStore } from 'pinia'
 import { api } from '../services/api'
 import { useAuthStore } from './auth'
 import { useUiStore } from './ui'
+import { useGamificationStore } from './gamification'
+
 
 export const useDailyLogStore = defineStore('dailyLogs', {
   state: () => ({
@@ -106,22 +108,52 @@ export const useDailyLogStore = defineStore('dailyLogs', {
     async createOrUpdateForDate(payload) {
       const auth = useAuthStore()
       if (!auth.user?.id) throw new Error('Sem sessão.')
+
+      const g = useGamificationStore()
+
       const existing = await api.get(`/dailyLogs?userId=${auth.user.id}&date=${payload.date}`)
+      let saved
+
       if (existing.data?.length) {
-        return this.update(existing.data[0].id, payload)
+        saved = await this.update(existing.data[0].id, payload)
+      } else {
+        saved = await this.create(payload)
       }
-      return this.create(payload)
+
+      // atribuir XP diário (no máximo 1x por log)
+      await g.awardDailyXp(saved)
+
+      return saved
     },
 
     async remove(id) {
       const ui = useUiStore()
+      const auth = useAuthStore()
+      const g = useGamificationStore()
+
+      if (!auth.user?.id) throw new Error('Sem sessão.')
+
       ui.setLoading(true)
       try {
+        // 1) apagar daily log
         await api.delete(`/dailyLogs/${id}`)
         this.items = this.items.filter(x => x.id !== id)
+
+        // 2) apagar xpEvents ligados a este daily log
+        const { data: events } = await api.get(
+          `/xpEvents?userId=${auth.user.id}&sourceType=daily&sourceId=${id}`
+        )
+
+        for (const ev of (events || [])) {
+          await api.delete(`/xpEvents/${ev.id}`)
+        }
+
+        // 3) recalcular XP/level (fonte de verdade)
+        await g.fetchMine()
       } finally {
         ui.setLoading(false)
       }
     }
+
   }
 })

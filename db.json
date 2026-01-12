@@ -1,6 +1,99 @@
 {
-  "users": [],
-  "workouts": [],
+  "users": [
+    {
+      "id": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "name": "Lebron",
+      "email": "admin1@gmail.com",
+      "password": "1234",
+      "role": "admin",
+      "createdAt": "2026-01-11T21:14:26.545Z"
+    },
+    {
+      "id": "7e6cf772-2759-468f-b23a-a380dbbbd89e",
+      "name": "João",
+      "email": "lala",
+      "password": "1234",
+      "role": "user",
+      "createdAt": "2026-01-12T12:23:33.597Z"
+    }
+  ],
+  "workouts": [
+    {
+      "id": "405e1bb6-0f5d-4218-9cd4-2c3a5387ff18",
+      "userId": "c1340de4-d9f4-4ba4-a7c8-08b5bf263b74",
+      "date": "2026-01-11",
+      "type": "strength",
+      "durationMin": 30,
+      "rpe": 6,
+      "notes": "ll",
+      "createdAt": "2026-01-11T21:01:19.056Z"
+    },
+    {
+      "id": "32dd95a3-a34b-465f-9053-11ef2a035e60",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "date": "2026-01-11",
+      "type": "strength",
+      "durationMin": 30,
+      "rpe": 6,
+      "notes": "lala",
+      "createdAt": "2026-01-11T21:30:04.154Z"
+    },
+    {
+      "id": "12652ca3-516a-4d5f-bfc0-7f1a75fb60b2",
+      "userId": "7e6cf772-2759-468f-b23a-a380dbbbd89e",
+      "date": "2026-01-12",
+      "type": "strength",
+      "durationMin": 30,
+      "rpe": 6,
+      "distanceKm": null,
+      "notes": "lala",
+      "createdAt": "2026-01-12T12:28:50.026Z"
+    },
+    {
+      "id": "43cf8948-bcf5-4960-88f2-a49a4d796abb",
+      "userId": "7e6cf772-2759-468f-b23a-a380dbbbd89e",
+      "date": "2026-01-12",
+      "type": "strength",
+      "durationMin": 30,
+      "rpe": 6,
+      "distanceKm": null,
+      "notes": "lala",
+      "createdAt": "2026-01-12T12:28:53.414Z"
+    },
+    {
+      "id": "6352c4ef-967c-4e7f-b178-98cf9b58bec6",
+      "userId": "7e6cf772-2759-468f-b23a-a380dbbbd89e",
+      "date": "2026-01-12",
+      "type": "strength",
+      "durationMin": 30,
+      "rpe": 6,
+      "distanceKm": null,
+      "notes": "lala",
+      "createdAt": "2026-01-12T12:28:56.730Z"
+    },
+    {
+      "id": "6aa4815b-a389-485b-bd42-386a885e2dbf",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "date": "2026-01-12",
+      "type": "run",
+      "durationMin": 30,
+      "rpe": 6,
+      "distanceKm": 5,
+      "notes": "",
+      "createdAt": "2026-01-12T20:08:20.167Z"
+    },
+    {
+      "id": "4bd137d7-1ac7-4f25-b421-2bb25ff25508",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "date": "2026-01-12",
+      "type": "run",
+      "durationMin": 30,
+      "rpe": 6,
+      "distanceKm": 7,
+      "notes": "",
+      "createdAt": "2026-01-12T20:09:57.975Z"
+    }
+  ],
   "workoutExercises": [],
   "dailyLogs": [
     {
@@ -16,12 +109,197 @@
       "notes": "",
       "createdAt": "2026-01-10T17:16:35.126Z",
       "updatedAt": "2026-01-10T17:16:35.126Z"
+    },
+    {
+      "id": "0ece8d57-ffe0-42e1-a90d-ff80d3ac5329",
+      "userId": "d474f2d6-8c52-468a-820e-ec5d01f22e03",
+      "date": "2026-01-11",
+      "sleepHrs": 8,
+      "waterMl": 2000,
+      "steps": 1000,
+      "weightKg": 80,
+      "mood": 5,
+      "energy": 5,
+      "notes": "lalala",
+      "createdAt": "2026-01-11T20:57:39.362Z",
+      "updatedAt": "2026-01-11T20:57:39.362Z"
+    },
+    {
+      "id": "b7ea23d6-e73b-45d1-8496-9304c1aa27ea",
+      "userId": "c1340de4-d9f4-4ba4-a7c8-08b5bf263b74",
+      "date": "2026-01-11",
+      "sleepHrs": 8,
+      "waterMl": 8,
+      "steps": 8,
+      "weightKg": 30,
+      "mood": 3,
+      "energy": 3,
+      "notes": "1111",
+      "createdAt": "2026-01-10T21:02:56.808Z",
+      "updatedAt": "2026-01-11T21:04:16.306Z"
+    },
+    {
+      "id": "a878eca1-fbd2-4488-98e1-63d6975702f1",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "date": "2026-01-12",
+      "sleepHrs": 8,
+      "waterMl": 1000,
+      "steps": 10000,
+      "weightKg": null,
+      "mood": null,
+      "energy": null,
+      "notes": "",
+      "createdAt": "2026-01-12T20:04:12.596Z",
+      "updatedAt": "2026-01-12T20:04:12.596Z"
     }
   ],
   "goals": [],
-  "challenges": [],
-  "userChallenges": [],
+  "challenges": [
+    {
+      "id": "ac315955-5e80-4ff2-90e2-1a2af0affd58",
+      "title": "Corre 10km hoje",
+      "description": "Completa 10km de corrida (workouts tipo run) hoje.",
+      "type": "run_distance_km",
+      "target": 10,
+      "startDate": "2026-01-12",
+      "endDate": "2026-01-12",
+      "xpReward": 40,
+      "isActive": true,
+      "createdAt": "2026-01-12T15:00:36.131Z"
+    },
+    {
+      "id": "8cd36197-bde2-4283-928e-008999b9ae78",
+      "title": "3 treinos em 7 dias",
+      "description": "Regista 3 treinos até ao fim de 7 dias.",
+      "type": "workouts_count",
+      "target": 3,
+      "startDate": "2026-01-12",
+      "endDate": "2026-01-18",
+      "xpReward": 50,
+      "isActive": true,
+      "createdAt": "2026-01-12T19:41:23.384Z"
+    },
+    {
+      "id": "5adbb8bc-ff4f-4caf-a7d9-59ddf4852382",
+      "title": "3 treinos em 7 dias",
+      "description": "Regista 3 treinos até ao fim de 7 dias.",
+      "type": "workouts_count",
+      "target": 3,
+      "startDate": "2026-01-12",
+      "endDate": "2026-01-18",
+      "xpReward": 50,
+      "isActive": false,
+      "createdAt": "2026-01-12T19:45:37.044Z"
+    }
+  ],
+  "userChallenges": [
+    {
+      "id": "2cbc5c12-e310-440b-9ceb-22624540d5eb",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "challengeId": "ac315955-5e80-4ff2-90e2-1a2af0affd58",
+      "status": "completed",
+      "joinedAt": "2026-01-12T20:02:35.807Z",
+      "completedAt": "2026-01-12T20:10:01.120Z"
+    },
+    {
+      "id": "08d9f463-35a2-405a-9433-5186b9cbd134",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "challengeId": "8cd36197-bde2-4283-928e-008999b9ae78",
+      "status": "active",
+      "joinedAt": "2026-01-12T20:02:43.059Z",
+      "completedAt": null
+    }
+  ],
   "badges": [],
   "userBadges": [],
-  "xpEvents": []
+  "xpEvents": [
+    {
+      "id": "18972cd0-c810-4a86-84c2-096568f8fa4e",
+      "userId": "c1340de4-d9f4-4ba4-a7c8-08b5bf263b74",
+      "sourceType": "workout",
+      "sourceId": "405e1bb6-0f5d-4218-9cd4-2c3a5387ff18",
+      "xp": 26,
+      "createdAt": "2026-01-11T21:01:19.100Z"
+    },
+    {
+      "id": "8d59c387-9e3d-4ed5-b802-971b3ef6db06",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "sourceType": "daily",
+      "sourceId": "e15d6984-eaf8-467b-a46b-472892539cc9",
+      "xp": 5,
+      "createdAt": "2026-01-11T21:29:50.746Z"
+    },
+    {
+      "id": "fc498166-9746-4d1d-ac56-42878fddd78d",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "sourceType": "workout",
+      "sourceId": "32dd95a3-a34b-465f-9053-11ef2a035e60",
+      "xp": 26,
+      "createdAt": "2026-01-11T21:30:04.185Z"
+    },
+    {
+      "id": "186e5763-2a1d-445d-8448-ccc678029e50",
+      "userId": "7e6cf772-2759-468f-b23a-a380dbbbd89e",
+      "sourceType": "workout",
+      "sourceId": "12652ca3-516a-4d5f-bfc0-7f1a75fb60b2",
+      "xp": 26,
+      "createdAt": "2026-01-12T12:28:50.056Z"
+    },
+    {
+      "id": "513fee18-04e0-4baa-b698-251fc26a5c43",
+      "userId": "7e6cf772-2759-468f-b23a-a380dbbbd89e",
+      "sourceType": "workout",
+      "sourceId": "43cf8948-bcf5-4960-88f2-a49a4d796abb",
+      "xp": 26,
+      "createdAt": "2026-01-12T12:28:53.438Z"
+    },
+    {
+      "id": "c1dca8a8-e8e3-4588-8d82-8dca851bc22a",
+      "userId": "7e6cf772-2759-468f-b23a-a380dbbbd89e",
+      "sourceType": "workout",
+      "sourceId": "6352c4ef-967c-4e7f-b178-98cf9b58bec6",
+      "xp": 26,
+      "createdAt": "2026-01-12T12:28:56.758Z"
+    },
+    {
+      "id": "1a28f0cf-6807-4911-890b-d0ebd925ae91",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "sourceType": "daily",
+      "sourceId": "a878eca1-fbd2-4488-98e1-63d6975702f1",
+      "xp": 10,
+      "createdAt": "2026-01-12T20:04:12.624Z"
+    },
+    {
+      "id": "4f496aa7-4a49-4920-b2a2-84e9a590967c",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "sourceType": "workout",
+      "sourceId": "6aa4815b-a389-485b-bd42-386a885e2dbf",
+      "xp": 21,
+      "createdAt": "2026-01-12T20:08:20.199Z"
+    },
+    {
+      "id": "25f424a7-ddf0-4c0e-99ac-f398deff896c",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "sourceType": "workout",
+      "sourceId": "4bd137d7-1ac7-4f25-b421-2bb25ff25508",
+      "xp": 21,
+      "createdAt": "2026-01-12T20:09:58.004Z"
+    },
+    {
+      "id": "94591602-e1ae-4c92-8606-4eea7137a508",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "sourceType": "challenge",
+      "sourceId": "ac315955-5e80-4ff2-90e2-1a2af0affd58",
+      "xp": 40,
+      "createdAt": "2026-01-12T20:10:01.157Z"
+    },
+    {
+      "id": "e6901fac-0238-4240-8869-a699c5b88d40",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "sourceType": "challenge",
+      "sourceId": "ac315955-5e80-4ff2-90e2-1a2af0affd58",
+      "xp": 40,
+      "createdAt": "2026-01-12T20:10:01.160Z"
+    }
+  ]
 }

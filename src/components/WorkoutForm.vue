@@ -20,6 +20,11 @@ const durationMin = ref(30)
 const rpe = ref(6)
 const notes = ref('')
 const error = ref('')
+const distanceKm = ref('')
+
+watch(type, (t) => {
+  if (t !== 'run') distanceKm.value = ''
+})
 
 watch(
   () => props.modelValue,
@@ -77,6 +82,7 @@ async function submit() {
         date: date.value,
         durationMin: durationMin.value,
         rpe: rpe.value,
+        distanceKm: type.value === 'run' ? distanceKm.value : null,
         notes: notes.value
       })
 
@@ -148,6 +154,20 @@ async function submit() {
         <input class="input" type="number" min="1" max="10" v-model="rpe" />
       </div>
     </div>
+
+    <div v-if="type === 'run'">
+      <label class="label">Distância (km)</label>
+      <input
+        class="input"
+        type="number"
+        min="0"
+        max="100"
+        step="0.1"
+        v-model="distanceKm"
+        placeholder="ex: 10"
+      />
+    </div>
+
 
     <div style="margin-top:12px;">
       <label class="label">Notas</label>
