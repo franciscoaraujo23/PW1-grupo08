@@ -26,37 +26,151 @@ async function removeWorkout(id) {
 </script>
 
 <template>
-  <section style="display:grid; gap: 14px;">
+  <section class="workouts">
     <WorkoutForm v-model="editing" @saved="store.fetchMine()" />
 
-    <div class="card">
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-        <h2 style="margin:0;">Meus Workouts</h2>
-        <button class="btn" @click="store.fetchMine">Refresh</button>
+    <div class="card workouts__card">
+      <div class="workouts__head">
+        <div>
+          <h2 class="workouts__title">Meus Workouts</h2>
+          <p class="small workouts__subtitle">Registos mais recentes primeiro.</p>
+        </div>
+
+        <button class="btn btn-ghost" @click="store.fetchMine">Refresh</button>
       </div>
 
-      <p class="small" v-if="store.items.length === 0" style="margin-top:10px;">
+      <p class="small workouts__empty" v-if="store.items.length === 0">
         Ainda não tens workouts. Cria o primeiro.
       </p>
 
-      <div v-else style="margin-top:12px; display:grid; gap:10px;">
-        <div v-for="w in store.items" :key="w.id" class="card" style="padding:12px;">
-          <div style="display:flex; justify-content:space-between; gap:10px; align-items:flex-start;">
-            <div>
-              <strong>{{ w.date }}</strong>
-              <div class="small">
-                {{ formatType(w.type) }} • {{ w.durationMin }} min • RPE {{ w.rpe }}
-              </div>
-              <div v-if="w.notes" class="small" style="margin-top:6px;">{{ w.notes }}</div>
+      <div v-else class="workouts__list">
+        <div v-for="w in store.items" :key="w.id" class="workouts__item">
+          <div class="workouts__itemMain">
+            <div class="workouts__date">{{ w.date }}</div>
+
+            <div class="pills">
+              <span class="pill">{{ formatType(w.type) }}</span>
+              <span class="pill">{{ w.durationMin }} min</span>
+              <span class="pill">RPE {{ w.rpe }}</span>
             </div>
 
-            <div style="display:flex; gap:10px;">
-              <button class="btn" @click="startEdit(w)">Editar</button>
-              <button class="btn btn-danger" @click="removeWorkout(w.id)">Apagar</button>
-            </div>
+            <div v-if="w.notes" class="workouts__notes">{{ w.notes }}</div>
+          </div>
+
+          <div class="workouts__actions">
+            <button class="btn btn-ghost" @click="startEdit(w)">Editar</button>
+            <button class="btn btn-danger" @click="removeWorkout(w.id)">Apagar</button>
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+
+.workouts{
+  display: grid;
+  gap: 16px;
+}
+
+.workouts__card{
+  padding: 20px;              /* <-- aqui tens o padding que querias */
+}
+
+.workouts__head{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.workouts__title{
+  margin: 0;
+  font-size: 18px;
+}
+
+.workouts__subtitle{
+  margin: 6px 0 0 0;
+}
+
+.workouts__empty{
+  margin-top: 10px;
+}
+
+.workouts__list{
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.workouts__item{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 14px 16px;         /* <-- mais “respiração” por item */
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+}
+
+.workouts__item:hover{
+  background: rgba(255,255,255,.05);
+}
+
+.workouts__date{
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.workouts__notes{
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--color-muted);
+  line-height: 1.4;
+  max-width: 70ch;
+}
+
+.workouts__actions{
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Botão ghost (se ainda não tens globalmente) */
+.btn-ghost{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.10);
+  color: var(--color-text);
+}
+
+/* Pills reaproveitáveis */
+.pills{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill{
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  color: var(--color-muted);
+}
+
+/* Mobile */
+@media (max-width: 720px){
+  .workouts__item{
+    flex-direction: column;
+  }
+  .workouts__actions{
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+</style>

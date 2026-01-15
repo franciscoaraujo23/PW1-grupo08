@@ -23,65 +23,132 @@ function logout() {
 
 <template>
   <header class="nav">
-    <div class="container nav-inner">
-      <div class="brand" @click="go('/dashboard')">Fitness Tracker</div>
+    <div class="container nav__inner">
+      <div class="brand" @click="go('/dashboard')" role="button" tabindex="0">
+        Fitness Tracker
+      </div>
 
-      <nav class="links" v-if="isAuthed">
-        <a @click.prevent="go('/dashboard')">Dashboard</a>
-        <a @click.prevent="go('/workouts')">Workouts</a>
-        <a @click.prevent="go('/daily')">Daily</a>
-        <a @click.prevent="go('/challenges')">Challenges</a>
-        <a v-if="isAdmin" @click.prevent="go('/admin/challenges')">Admin</a>
+      <nav class="nav__links" v-if="isAuthed" aria-label="Primary">
+        <RouterLink class="nav__link" to="/dashboard">Dashboard</RouterLink>
+        <RouterLink class="nav__link" to="/workouts">Workouts</RouterLink>
+        <RouterLink class="nav__link" to="/daily">Daily</RouterLink>
+        <RouterLink class="nav__link" to="/challenges">Challenges</RouterLink>
+        <RouterLink v-if="isAdmin" class="nav__link nav__link--admin" to="/admin/challenges">Admin</RouterLink>
       </nav>
 
-      <div class="right">
-        <span class="small" v-if="isAuthed">{{ auth.user?.email }} ({{ auth.user?.role }})</span>
-        <button class="btn" v-if="!isAuthed" @click="go('/login')">Login</button>
+      <div class="nav__right">
+        <span v-if="isAuthed" class="nav__user small">
+          {{ auth.user?.email }}
+          <span class="nav__role">{{ auth.user?.role }}</span>
+        </span>
+
+        <button class="btn btn-ghost" v-if="!isAuthed" @click="go('/login')">Login</button>
         <button class="btn btn-danger" v-else @click="logout">Logout</button>
       </div>
     </div>
   </header>
 </template>
 
+
 <style scoped>
-.nav {
+.nav{
   position: sticky;
   top: 0;
-  backdrop-filter: blur(10px);
-  background: rgba(11,15,23,0.72);
-  border-bottom: 1px solid var(--border);
   z-index: 20;
+  background: rgba(6,18,31,.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
-.nav-inner {
+
+.nav__inner{
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 14px;
-  padding: 14px 0;
+  padding: 12px 0;
 }
-.brand {
-  font-weight: 900;
-  letter-spacing: 0.2px;
+
+.brand{
+  font-weight: 800;
+  letter-spacing: .2px;
+  color: var(--color-text);
   cursor: pointer;
   user-select: none;
 }
-.links {
+
+.nav__links{
   display: flex;
-  gap: 14px;
-  margin-left: 12px;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 999px;
+  background: rgba(255,255,255,.03);
 }
-.links a {
-  color: var(--muted);
-  font-weight: 600;
+
+.nav__link{
+  color: var(--color-muted);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
 }
-.links a:hover { color: var(--text); }
-.right {
-  margin-left: auto;
+
+.nav__link:hover{
+  color: var(--color-text);
+  background: rgba(255,255,255,.04);
+}
+
+.nav__link.router-link-active{
+  color: #052012;
+  background: var(--color-gold);
+}
+
+.nav__link--admin{
+  border: 1px solid rgba(34,197,94,.25);
+}
+
+.nav__right{
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
-@media (max-width: 760px) {
-  .links { display: none; }
-  .small { display: none; }
+
+.nav__user{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-muted);
+  max-width: 360px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+.nav__role{
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  color: var(--color-muted);
+}
+
+/* Botão ghost (se não estiver global) */
+.btn-ghost{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.10);
+  color: var(--color-text);
+}
+
+/* Mobile: links viram scroll horizontal */
+@media (max-width: 860px){
+  .nav__links{
+    overflow-x: auto;
+    max-width: 55vw;
+    scrollbar-width: none;
+  }
+  .nav__links::-webkit-scrollbar{ display:none; }
+  .nav__user{ display:none; } /* no mobile isto é ruído */
+}
+
 </style>

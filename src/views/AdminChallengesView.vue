@@ -2,6 +2,14 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import { useChallengesStore } from '../stores/challenges'
 import { useUiStore } from '../stores/ui'
+import { api } from '../services/api'
+
+const hasParticipants = ref(false)
+
+async function checkParticipants(challengeId) {
+  const { data } = await api.get(`/userChallenges?challengeId=${challengeId}`)
+  hasParticipants.value = (data || []).length > 0
+}
 
 
 const store = useChallengesStore()
@@ -81,9 +89,10 @@ function resetForm() {
     xpReward: 50,
     isActive: true
   }
+  hasParticipants.value = false
 }
 
-function startEdit(c) {
+async function startEdit(c) {
   mode.value = 'edit'
   editingId.value = c.id
   error.value = ''
@@ -98,6 +107,7 @@ function startEdit(c) {
     xpReward: c.xpReward ?? 0,
     isActive: !!c.isActive
   }
+  await checkParticipants(c.id)
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
@@ -208,7 +218,7 @@ function applyTemplate(kind) {
 
         <div style="width:280px;">
           <label class="label">Tipo</label>
-          <select class="input" v-model="form.type">
+          <select class="input" v-model="form.type" :disabled="hasParticipants">
             <option v-for="t in TYPES" :key="t.value" :value="t.value">{{ t.label }}</option>
           </select>
         </div>
@@ -222,15 +232,15 @@ function applyTemplate(kind) {
       <div class="row" style="margin-top:12px;">
         <div>
           <label class="label">Start date</label>
-          <input class="input" type="date" v-model="form.startDate" />
+          <input class="input" type="date" v-model="form.startDate"  :disabled="hasParticipants"/>
         </div>
         <div>
           <label class="label">End date</label>
-          <input class="input" type="date" v-model="form.endDate" />
+          <input class="input" type="date" v-model="form.endDate"  :disabled="hasParticipants"/>
         </div>
         <div>
           <label class="label">Target</label>
-          <input class="input" type="number" min="1" step="1" v-model="form.target" />
+          <input class="input" type="number" min="1" step="1" v-model="form.target" :disabled="hasParticipants" />
         </div>
       </div>
 

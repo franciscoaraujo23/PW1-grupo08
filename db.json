@@ -92,6 +92,28 @@
       "distanceKm": 7,
       "notes": "",
       "createdAt": "2026-01-12T20:09:57.975Z"
+    },
+    {
+      "id": "305661df-220d-4bb2-a971-edad57edfa57",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "date": "2026-01-14",
+      "type": "strength",
+      "durationMin": 30,
+      "rpe": 6,
+      "distanceKm": null,
+      "notes": "morcego 4",
+      "createdAt": "2026-01-14T23:39:22.029Z"
+    },
+    {
+      "id": "798a8b2d-d4be-4c61-8875-5bc5fe7d3b94",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "date": "2026-01-15",
+      "type": "strength",
+      "durationMin": 30,
+      "rpe": 6,
+      "distanceKm": null,
+      "notes": "",
+      "createdAt": "2026-01-15T01:53:09.001Z"
     }
   ],
   "workoutExercises": [],
@@ -137,20 +159,6 @@
       "notes": "1111",
       "createdAt": "2026-01-10T21:02:56.808Z",
       "updatedAt": "2026-01-11T21:04:16.306Z"
-    },
-    {
-      "id": "a878eca1-fbd2-4488-98e1-63d6975702f1",
-      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
-      "date": "2026-01-12",
-      "sleepHrs": 8,
-      "waterMl": 1000,
-      "steps": 10000,
-      "weightKg": null,
-      "mood": null,
-      "energy": null,
-      "notes": "",
-      "createdAt": "2026-01-12T20:04:12.596Z",
-      "updatedAt": "2026-01-12T20:04:12.596Z"
     }
   ],
   "goals": [],
@@ -164,7 +172,7 @@
       "startDate": "2026-01-12",
       "endDate": "2026-01-12",
       "xpReward": 40,
-      "isActive": true,
+      "isActive": false,
       "createdAt": "2026-01-12T15:00:36.131Z"
     },
     {
@@ -205,9 +213,9 @@
       "id": "08d9f463-35a2-405a-9433-5186b9cbd134",
       "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
       "challengeId": "8cd36197-bde2-4283-928e-008999b9ae78",
-      "status": "active",
+      "status": "completed",
       "joinedAt": "2026-01-12T20:02:43.059Z",
-      "completedAt": null
+      "completedAt": "2026-01-14T23:39:26.459Z"
     }
   ],
   "badges": [],
@@ -262,14 +270,6 @@
       "createdAt": "2026-01-12T12:28:56.758Z"
     },
     {
-      "id": "1a28f0cf-6807-4911-890b-d0ebd925ae91",
-      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
-      "sourceType": "daily",
-      "sourceId": "a878eca1-fbd2-4488-98e1-63d6975702f1",
-      "xp": 10,
-      "createdAt": "2026-01-12T20:04:12.624Z"
-    },
-    {
       "id": "4f496aa7-4a49-4920-b2a2-84e9a590967c",
       "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
       "sourceType": "workout",
@@ -300,6 +300,62 @@
       "sourceId": "ac315955-5e80-4ff2-90e2-1a2af0affd58",
       "xp": 40,
       "createdAt": "2026-01-12T20:10:01.160Z"
+    },
+    {
+      "id": "8a050364-eb3d-4d6b-91e9-2b4f3c05418b",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "sourceType": "workout",
+      "sourceId": "305661df-220d-4bb2-a971-edad57edfa57",
+      "xp": 26,
+      "createdAt": "2026-01-14T23:39:22.036Z"
+    },
+    {
+      "id": "b688b0a0-28a6-4d64-bffc-ecea18db0537",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "sourceType": "challenge",
+      "sourceId": "8cd36197-bde2-4283-928e-008999b9ae78",
+      "xp": 50,
+      "createdAt": "2026-01-14T23:39:26.487Z"
+    },
+    {
+      "id": "965a2f7c-80b5-412a-800e-987bfb6f7559",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "sourceType": "challenge",
+      "sourceId": "8cd36197-bde2-4283-928e-008999b9ae78",
+      "xp": 50,
+      "createdAt": "2026-01-14T23:39:26.488Z"
+    },
+    {
+      "id": "3a9dcb1d-b668-46e9-ab03-f06de2ca5362",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "sourceType": "challenge",
+      "sourceId": "8cd36197-bde2-4283-928e-008999b9ae78",
+      "xp": 50,
+      "createdAt": "2026-01-14T23:39:26.489Z"
+    },
+    {
+      "id": "3c1459cd-4db9-4778-af59-05783a8a8ca5",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "sourceType": "challenge",
+      "sourceId": "8cd36197-bde2-4283-928e-008999b9ae78",
+      "xp": 50,
+      "createdAt": "2026-01-14T23:39:26.491Z"
+    },
+    {
+      "id": "0d2e7e00-dfe2-445a-aafd-e7178e934962",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "sourceType": "challenge",
+      "sourceId": "8cd36197-bde2-4283-928e-008999b9ae78",
+      "xp": 50,
+      "createdAt": "2026-01-14T23:39:26.491Z"
+    },
+    {
+      "id": "6ddfc19c-ab3c-4dfd-ac47-94d28f83a7af",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "sourceType": "workout",
+      "sourceId": "798a8b2d-d4be-4c61-8875-5bc5fe7d3b94",
+      "xp": 26,
+      "createdAt": "2026-01-15T01:53:09.011Z"
     }
   ]
 }

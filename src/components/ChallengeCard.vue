@@ -6,6 +6,9 @@ const props = defineProps({
   joined: { type: Boolean, default: false }
 })
 const emit = defineEmits(['join'])
+const today = new Date().toISOString().slice(0,10)
+const isExpired = computed(() => props.challenge.endDate < today)
+
 
 const period = computed(() => `${props.challenge.startDate} → ${props.challenge.endDate}`)
 </script>
@@ -21,8 +24,8 @@ const period = computed(() => `${props.challenge.startDate} → ${props.challeng
       </div>
 
       <div style="display:flex; align-items:flex-start;">
-        <button class="btn btn-primary" :disabled="joined" @click="emit('join', challenge.id)">
-          {{ joined ? 'Já aderido' : 'Participar' }}
+        <button class="btn btn-primary" :disabled="joined || isExpired" @click="emit('join', challenge.id)">
+          {{ isExpired ? 'Expirado' : (joined ? 'Já aderido' : 'Participar') }}
         </button>
       </div>
     </div>

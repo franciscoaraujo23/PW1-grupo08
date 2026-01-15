@@ -1,12 +1,28 @@
-:root {
-  --bg: #0b0f17;
-  --panel: #111827;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --border: rgba(255, 255, 255, 0.08);
-  --primary: #38bdf8;
-  --danger: #fb7185;
+:root{
+  --color-bg: #06121f;
+  --color-bg-alt: #06121f;
+
+  --color-card-dark: #0b1b2d;
+  --color-card-dark-2: #0f243a;
+
+  --color-text: #eaf2ff;
+  --color-muted: #9fb2c8;
+
+  --color-border: rgba(255,255,255,.08);
+
+  --color-accent: #22c55e;       
+
+  --color-accent-weak: rgba(34,197,94,.12);
+
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+
+  --radius: 14px;
+  --shadow: 0 10px 28px rgba(0,0,0,.35);
+
+  --font-heading: var(--font-body); 
 }
+
 
 * { box-sizing: border-box; }
 
@@ -26,11 +42,16 @@ a:hover { opacity: 0.9; }
   margin: 0 auto;
 }
 
-.card {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 16px;
+.card{
+  background: linear-gradient(180deg, var(--color-card-dark), rgba(0,0,0,0));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(34,197,94,.28);
 }
 
 .btn {
@@ -49,10 +70,18 @@ a:hover { opacity: 0.9; }
 .btn:hover { background: rgba(255,255,255,0.09); }
 .btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
-.btn-primary {
-  background: rgba(56,189,248,0.18);
-  border-color: rgba(56,189,248,0.35);
+.btn-primary{
+  background: var(--color-accent);
+  color: #052012;
+  border: 1px solid rgba(255,255,255,.08);
+  text-transform: none;      /* tira o “UPPERCASE premium” */
+  letter-spacing: 0;         /* mais app-like */
 }
+
+.btn-primary:hover{
+  filter: brightness(1.05);
+}
+
 .btn-danger {
   background: rgba(251,113,133,0.16);
   border-color: rgba(251,113,133,0.35);
@@ -79,8 +108,142 @@ a:hover { opacity: 0.9; }
   margin-bottom: 6px;
 }
 
+.progress{
+  height: 10px;
+  background: rgba(255,255,255,.06);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.06);
+}
+.progress > div{
+  height: 100%;
+  width: var(--p, 0%);
+  background: linear-gradient(90deg, var(--color-accent), rgba(255,255,255,.25));
+}
+
+
+.stat{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 16px;
+}
+.stat .label{ color: var(--color-muted); font-size: 12px; }
+.stat .value{ font-size: 32px; font-weight: 700; line-height: 1.1; }
+.stat .meta{ color: var(--color-muted); font-size: 12px; margin-top: 8px; }
+.badge{
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--color-accent-weak);
+  border: 1px solid rgba(34,197,94,.25);
+  color: var(--color-text);
+}
+
+.field label{ font-size: 12px; color: var(--color-muted); display:block; margin-bottom:6px; }
+.input, select, textarea{
+  width:100%;
+  background: var(--color-card-dark-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  border-radius: 12px;
+  padding: 12px 12px;
+  outline: none;
+}
+.input:focus, select:focus, textarea:focus{
+  border-color: rgba(34,197,94,.35);
+  box-shadow: 0 0 0 4px rgba(34,197,94,.12);
+}
+.hint{ font-size: 12px; color: var(--color-muted); margin-top: 6px; }
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: rgba(255,255,255,.02);
+}
+.row:hover{ background: rgba(255,255,255,.04); }
+
+.pills{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+.pill{
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  color: var(--color-muted);
+}
+.btn-ghost{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.10);
+  color: var(--color-text);
+}
+.btn-danger{
+  background: rgba(239,68,68,.12);
+  border: 1px solid rgba(239,68,68,.25);
+  color: var(--color-text);
+}
+
+
 .row { display: flex; gap: 12px; }
 .row > * { flex: 1; }
 
 .small { font-size: 12px; color: var(--muted); }
 .error { color: var(--danger); font-size: 13px; }
+
+
+/* =========================
+   FITNESS TRACKER OVERRIDES
+   (cola no FIM do base.css)
+   ========================= */
+
+:root{
+  /* mantém os nomes para não partires o CSS existente */
+  --color-bg: #06121f;
+  --color-bg-alt: #06121f;
+
+  --color-card-dark: #0b1b2d;
+  --color-card-light: #0f243a;
+
+  --color-text: #eaf2ff;
+  --color-muted: #9fb2c8;
+
+  --color-border: rgba(255,255,255,.10);
+
+  /* “gold” passa a ser o accent health */
+  --color-gold: #22c55e;        /* green */
+  --color-gold-hover: #34d399;
+
+  --font-heading: var(--font-body);
+}
+
+body{
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+
+h1,h2,h3,h4{ font-family: var(--font-heading) !important; }
+
+p{ color: var(--color-muted); }
+
+.small{
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.card{
+  background: var(--color-card-dark) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,.35) !important;
+}
+
+
+.btn{
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  border-radius: 12px !important;
+  padding: 0.65rem 1.1rem !important;
+}

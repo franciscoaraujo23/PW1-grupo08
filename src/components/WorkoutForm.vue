@@ -115,24 +115,25 @@ async function submit() {
 </script>
 
 <template>
-  <div class="card">
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-      <h2 style="margin:0;">
-        {{ isEditing ? 'Editar Workout' : 'Novo Workout' }}
-      </h2>
-
-      <button v-if="isEditing" class="btn" @click="cancelEdit">Cancelar</button>
-    </div>
-
-    <div class="row" style="margin-top:12px;">
+  <div class="card wf">
+    <div class="wf__head">
       <div>
-        <label class="label">Data</label>
-        <input class="input" type="date" v-model="date" />
+        <h2 class="wf__title">{{ isEditing ? 'Editar Workout' : 'Novo Workout' }}</h2>
+        <p class="small wf__subtitle">Regista a sessão em menos de 20 segundos.</p>
       </div>
 
-      <div>
-        <label class="label">Tipo</label>
-        <select class="input" v-model="type">
+      <button v-if="isEditing" class="btn btn-ghost" @click="cancelEdit">Cancelar</button>
+    </div>
+
+    <div class="wf__grid">
+      <div class="wf__field">
+        <label class="wf__label">Data</label>
+        <input class="wf__input" type="date" v-model="date" />
+      </div>
+
+      <div class="wf__field">
+        <label class="wf__label">Tipo</label>
+        <select class="wf__input" v-model="type">
           <option value="strength">Strength</option>
           <option value="run">Run</option>
           <option value="cycling">Cycling</option>
@@ -141,50 +142,169 @@ async function submit() {
           <option value="sport">Sport</option>
         </select>
       </div>
-    </div>
 
-    <div class="row" style="margin-top:12px;">
-      <div>
-        <label class="label">Duração (min)</label>
-        <input class="input" type="number" min="5" max="240" v-model="durationMin" />
+      <div class="wf__field">
+        <label class="wf__label">Duração (min)</label>
+        <input class="wf__input" type="number" min="5" max="240" v-model="durationMin" />
       </div>
 
-      <div>
-        <label class="label">RPE (1-10)</label>
-        <input class="input" type="number" min="1" max="10" v-model="rpe" />
+      <div class="wf__field">
+        <label class="wf__label">RPE (1–10)</label>
+        <input class="wf__input" type="number" min="1" max="10" v-model="rpe" />
+      </div>
+
+      <div v-if="type === 'run'" class="wf__field wf__field--full">
+        <label class="wf__label">Distância (km)</label>
+        <input
+          class="wf__input"
+          type="number"
+          min="0"
+          max="100"
+          step="0.1"
+          v-model="distanceKm"
+          placeholder="ex: 10"
+        />
+        <p class="wf__hint">Só aparece para corrida.</p>
+      </div>
+
+      <div class="wf__field wf__field--full">
+        <label class="wf__label">Notas</label>
+        <textarea class="wf__input wf__textarea" rows="3" v-model="notes" placeholder="Opcional"></textarea>
       </div>
     </div>
 
-    <div v-if="type === 'run'">
-      <label class="label">Distância (km)</label>
-      <input
-        class="input"
-        type="number"
-        min="0"
-        max="100"
-        step="0.1"
-        v-model="distanceKm"
-        placeholder="ex: 10"
-      />
-    </div>
+    <p v-if="error" class="wf__error">{{ error }}</p>
 
-
-    <div style="margin-top:12px;">
-      <label class="label">Notas</label>
-      <textarea class="input" rows="3" v-model="notes" placeholder="Opcional"></textarea>
-    </div>
-
-    <p v-if="error" class="error" style="margin-top:10px;">{{ error }}</p>
-
-    <div style="margin-top:12px;">
+    <div class="wf__actions">
       <button class="btn btn-primary" @click="submit">
         {{ isEditing ? 'Guardar alterações' : 'Guardar' }}
       </button>
+      <p class="wf__footnote small">
+        Editar não recalcula XP (por agora).
+      </p>
     </div>
-
-    <p class="small" style="margin-top:10px;">
-      Nota: editar não recalcula XP (por agora). Isso evita exploits. Podemos tratar depois com lógica de “diff”.
-    </p>
   </div>
 </template>
+
+<style scoped>
+
+
+.wf{
+  padding: 20px;
+}
+
+.wf__head{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.wf__title{
+  margin: 0;
+  font-size: 18px;
+}
+
+.wf__subtitle{
+  margin: 6px 0 0 0;
+}
+
+.wf__grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 14px;
+  margin-top: 10px;
+}
+
+.wf__field{
+  display: grid;
+  gap: 6px;
+}
+
+.wf__field--full{
+  grid-column: 1 / -1;
+}
+
+.wf__label{
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.wf__input{
+  width: 100%;
+  background: var(--color-card-light);
+  border: 1px solid rgba(255,255,255,.10);
+  color: var(--color-text);
+  border-radius: 12px;
+  padding: 12px 12px;
+  outline: none;
+}
+
+.wf__input::placeholder{
+  color: rgba(159,178,200,.75);
+}
+
+.wf__input:focus{
+  border-color: rgba(34,197,94,.35);
+  box-shadow: 0 0 0 4px rgba(34,197,94,.12);
+}
+
+.wf__textarea{
+  resize: vertical;
+  min-height: 92px;
+}
+
+.wf__hint{
+  margin: 0;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.wf__error{
+  margin: 12px 0 0 0;
+  font-size: 12px;
+  color: #ffd7d7;
+  background: rgba(239,68,68,.14);
+  border: 1px solid rgba(239,68,68,.25);
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+.wf__actions{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.wf__footnote{
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.btn-ghost{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.10);
+  color: var(--color-text);
+}
+
+.btn:disabled{
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+
+/* Mobile */
+@media (max-width: 720px){
+  .wf__grid{
+    grid-template-columns: 1fr;
+  }
+  .wf__actions{
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+</style>
 
