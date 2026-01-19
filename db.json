@@ -129,7 +129,34 @@
       "createdAt": "2026-01-19T00:51:40.925Z"
     }
   ],
-  "workoutExercises": [],
+  "workoutExercises": [
+    {
+      "id": "c5038f69-18b3-4ce5-a02b-99db3e7cbe2c",
+      "workoutId": "32dd95a3-a34b-465f-9053-11ef2a035e60",
+      "exerciseId": "8d8qJQI",
+      "name": "barbell reverse grip incline bench row",
+      "gifUrl": "https://static.exercisedb.dev/media/8d8qJQI.gif",
+      "bodyPart": "back",
+      "target": "upper back",
+      "equipment": "barbell",
+      "sets": 3,
+      "reps": 10,
+      "createdAt": "2026-01-19T03:08:54.913Z"
+    },
+    {
+      "id": "b7c8833f-1b7d-47eb-89b3-838752f655fd",
+      "workoutId": "32dd95a3-a34b-465f-9053-11ef2a035e60",
+      "exerciseId": "JGKowMS",
+      "name": "smith narrow row",
+      "gifUrl": "https://static.exercisedb.dev/media/JGKowMS.gif",
+      "bodyPart": "back",
+      "target": "upper back",
+      "equipment": "smith machine",
+      "sets": 3,
+      "reps": 10,
+      "createdAt": "2026-01-19T03:08:56.122Z"
+    }
+  ],
   "dailyLogs": [
     {
       "id": "a0b72cf3-2aa3-47e5-a83e-11413da8ba97",
@@ -252,6 +279,30 @@
       "userId": "7149b77a-4729-48c8-884c-8db5678b0dd5",
       "badgeId": "first_workout",
       "earnedAt": "2026-01-19T01:42:59.166Z"
+    },
+    {
+      "id": "ac6a450c-4d33-4bc6-9112-6036ec6b7c34",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "badgeId": "first_workout",
+      "earnedAt": "2026-01-19T03:07:42.667Z"
+    },
+    {
+      "id": "9aff9dfb-51eb-4c0d-a56c-8c877cc5689b",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "badgeId": "run_10km",
+      "earnedAt": "2026-01-19T03:07:42.693Z"
+    },
+    {
+      "id": "6f5d13d0-02be-4410-9e46-4327ed287821",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "badgeId": "level_5",
+      "earnedAt": "2026-01-19T03:07:42.702Z"
+    },
+    {
+      "id": "29498897-9d8f-45c6-8005-3c988ba61933",
+      "userId": "33d649b0-a063-429e-889b-ab57fb5a921c",
+      "badgeId": "challenge_complete",
+      "earnedAt": "2026-01-19T03:07:42.711Z"
     }
   ],
   "xpEvents": [

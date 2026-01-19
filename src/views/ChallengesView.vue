@@ -61,7 +61,6 @@ async function complete(challenge) {
     const xp = await userChallenges.awardIfNotAwarded(challenge.id, challenge.xpReward)
     if (xp > 0) ui.showToast('success', `Challenge completo! +${xp} XP`)
     await badges.syncMine({ silent: false })
-
   } catch (e) {
     ui.showToast('error', e?.message || 'Erro a completar challenge.')
   }
