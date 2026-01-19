@@ -92,9 +92,110 @@
       "distanceKm": 7,
       "notes": "",
       "createdAt": "2026-01-12T20:09:57.975Z"
+    },
+    {
+      "id": "a97dfdb7-70a3-4fc7-a66c-56c2ae54c1b0",
+      "userId": "7149b77a-4729-48c8-884c-8db5678b0dd5",
+      "date": "2026-01-19",
+      "type": "strength",
+      "durationMin": 30,
+      "rpe": 6,
+      "distanceKm": null,
+      "notes": "",
+      "createdAt": "2026-01-19T02:22:05.003Z"
+    },
+    {
+      "id": "c95ce600-4d54-4c56-95eb-cf7cda82cde9",
+      "userId": "7149b77a-4729-48c8-884c-8db5678b0dd5",
+      "date": "2026-01-19",
+      "type": "cycling",
+      "durationMin": 30,
+      "rpe": 6,
+      "distanceKm": null,
+      "notes": "",
+      "createdAt": "2026-01-19T02:31:23.756Z"
     }
   ],
-  "workoutExercises": [],
+  "workoutExercises": [
+    {
+      "id": "22d8aa47-3e90-467b-8907-c764e0aa8088",
+      "workoutId": "a97dfdb7-70a3-4fc7-a66c-56c2ae54c1b0",
+      "exerciseId": "JGKowMS",
+      "name": "smith narrow row",
+      "gifUrl": "https://static.exercisedb.dev/media/JGKowMS.gif",
+      "bodyPart": "back",
+      "target": "upper back",
+      "equipment": "smith machine",
+      "sets": 3,
+      "reps": 10,
+      "createdAt": "2026-01-19T02:22:20.805Z"
+    },
+    {
+      "id": "df5a1a94-c68d-4d73-ab6f-c5d435a79573",
+      "workoutId": "a97dfdb7-70a3-4fc7-a66c-56c2ae54c1b0",
+      "exerciseId": "ZqNOWQ6",
+      "name": "lever reverse grip vertical row",
+      "gifUrl": "https://static.exercisedb.dev/media/ZqNOWQ6.gif",
+      "bodyPart": "back",
+      "target": "upper back",
+      "equipment": "leverage machine",
+      "sets": 3,
+      "reps": 10,
+      "createdAt": "2026-01-19T02:22:22.966Z"
+    },
+    {
+      "id": "c54175ab-6b0d-4586-b519-2b06de1270df",
+      "workoutId": "a97dfdb7-70a3-4fc7-a66c-56c2ae54c1b0",
+      "exerciseId": "Fhdtwf3",
+      "name": "lever one arm bent over row",
+      "gifUrl": "https://static.exercisedb.dev/media/Fhdtwf3.gif",
+      "bodyPart": "back",
+      "target": "upper back",
+      "equipment": "barbell",
+      "sets": 3,
+      "reps": 10,
+      "createdAt": "2026-01-19T02:22:30.051Z"
+    },
+    {
+      "id": "495e988c-5222-4d31-8773-4fa956f67e2e",
+      "workoutId": "a97dfdb7-70a3-4fc7-a66c-56c2ae54c1b0",
+      "exerciseId": "bKWbrTA",
+      "name": "one arm towel row",
+      "gifUrl": "https://static.exercisedb.dev/media/bKWbrTA.gif",
+      "bodyPart": "back",
+      "target": "upper back",
+      "equipment": "body weight",
+      "sets": 3,
+      "reps": 10,
+      "createdAt": "2026-01-19T02:22:31.258Z"
+    },
+    {
+      "id": "f4aefc06-8c76-4519-a8a9-a9dd990886ed",
+      "workoutId": "a97dfdb7-70a3-4fc7-a66c-56c2ae54c1b0",
+      "exerciseId": "Fhdtwf3",
+      "name": "lever one arm bent over row",
+      "gifUrl": "https://static.exercisedb.dev/media/Fhdtwf3.gif",
+      "bodyPart": "back",
+      "target": "upper back",
+      "equipment": "barbell",
+      "sets": 3,
+      "reps": 10,
+      "createdAt": "2026-01-19T02:24:24.796Z"
+    },
+    {
+      "id": "a523b36d-026f-462e-bf32-2386cd6baf67",
+      "workoutId": "a97dfdb7-70a3-4fc7-a66c-56c2ae54c1b0",
+      "exerciseId": "ZX9UZmj",
+      "name": "smith bent over row",
+      "gifUrl": "https://static.exercisedb.dev/media/ZX9UZmj.gif",
+      "bodyPart": "back",
+      "target": "upper back",
+      "equipment": "smith machine",
+      "sets": 3,
+      "reps": 10,
+      "createdAt": "2026-01-19T02:24:30.256Z"
+    }
+  ],
   "dailyLogs": [
     {
       "id": "a0b72cf3-2aa3-47e5-a83e-11413da8ba97",
@@ -300,6 +401,22 @@
       "sourceId": "ac315955-5e80-4ff2-90e2-1a2af0affd58",
       "xp": 40,
       "createdAt": "2026-01-12T20:10:01.160Z"
+    },
+    {
+      "id": "771da241-857a-426b-b4a6-cb0bd2410f34",
+      "userId": "7149b77a-4729-48c8-884c-8db5678b0dd5",
+      "sourceType": "workout",
+      "sourceId": "a97dfdb7-70a3-4fc7-a66c-56c2ae54c1b0",
+      "xp": 26,
+      "createdAt": "2026-01-19T02:22:05.012Z"
+    },
+    {
+      "id": "64ed4a67-5445-47c9-b2a1-efd77caf51ee",
+      "userId": "7149b77a-4729-48c8-884c-8db5678b0dd5",
+      "sourceType": "workout",
+      "sourceId": "c95ce600-4d54-4c56-95eb-cf7cda82cde9",
+      "xp": 21,
+      "createdAt": "2026-01-19T02:31:23.762Z"
     }
   ]
 }
