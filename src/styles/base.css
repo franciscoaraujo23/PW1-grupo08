@@ -247,3 +247,20 @@ p{ color: var(--color-muted); }
   border-radius: 12px !important;
   padding: 0.65rem 1.1rem !important;
 }
+
+/* Page-level spacing (só onde metes class="page") */
+.page{
+  display: grid;
+  gap: 14px;
+}
+
+/* Cards principais da página */
+.page > .card{
+  padding: 22px;              /* mais “respiração” */
+  border-radius: 16px;
+}
+
+/* Em mobile, não exagerar */
+@media (max-width: 768px){
+  .page > .card{ padding: 18px; }
+}

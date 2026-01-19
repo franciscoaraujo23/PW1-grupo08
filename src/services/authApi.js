@@ -14,6 +14,7 @@ export async function registerUser({ name, email, password }) {
     email: normalized,
     password, // mock (ok para projeto académico)
     role,
+    avatarUrl: '',
     createdAt: new Date().toISOString()
   }
 

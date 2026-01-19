@@ -16,7 +16,7 @@ onMounted(async () => {
 
 <template>
   <section class="dash">
-    <!-- Header (sem card gigante vazio) -->
+    <!-- Header -->
     <header class="dash__header">
       <div>
         <h1 class="dash__title">Dashboard</h1>

@@ -6,7 +6,8 @@
       "email": "admin1@gmail.com",
       "password": "1234",
       "role": "admin",
-      "createdAt": "2026-01-11T21:14:26.545Z"
+      "createdAt": "2026-01-11T21:14:26.545Z",
+      "avatarUrl": ""
     },
     {
       "id": "7e6cf772-2759-468f-b23a-a380dbbbd89e",
@@ -14,7 +15,8 @@
       "email": "lala",
       "password": "1234",
       "role": "user",
-      "createdAt": "2026-01-12T12:23:33.597Z"
+      "createdAt": "2026-01-12T12:23:33.597Z",
+      "avatarUrl": ""
     }
   ],
   "workouts": [
@@ -114,6 +116,17 @@
       "distanceKm": null,
       "notes": "",
       "createdAt": "2026-01-15T01:53:09.001Z"
+    },
+    {
+      "id": "e18e5148-585c-4a6b-8517-a2adafda42f9",
+      "userId": "7149b77a-4729-48c8-884c-8db5678b0dd5",
+      "date": "2026-01-19",
+      "type": "strength",
+      "durationMin": 30,
+      "rpe": 6,
+      "distanceKm": null,
+      "notes": "",
+      "createdAt": "2026-01-19T00:51:40.925Z"
     }
   ],
   "workoutExercises": [],
@@ -172,7 +185,7 @@
       "startDate": "2026-01-12",
       "endDate": "2026-01-12",
       "xpReward": 40,
-      "isActive": false,
+      "isActive": true,
       "createdAt": "2026-01-12T15:00:36.131Z"
     },
     {
@@ -196,7 +209,7 @@
       "startDate": "2026-01-12",
       "endDate": "2026-01-18",
       "xpReward": 50,
-      "isActive": false,
+      "isActive": true,
       "createdAt": "2026-01-12T19:45:37.044Z"
     }
   ],
@@ -216,10 +229,31 @@
       "status": "completed",
       "joinedAt": "2026-01-12T20:02:43.059Z",
       "completedAt": "2026-01-14T23:39:26.459Z"
+    },
+    {
+      "id": "193e82e7-e40a-441c-893d-3d1fd1ba9536",
+      "userId": "7149b77a-4729-48c8-884c-8db5678b0dd5",
+      "challengeId": "8cd36197-bde2-4283-928e-008999b9ae78",
+      "status": "active",
+      "joinedAt": "2026-01-18T18:50:09.260Z",
+      "completedAt": null
     }
   ],
   "badges": [],
-  "userBadges": [],
+  "userBadges": [
+    {
+      "id": "46d5dfc5-fcc9-448f-a674-32325efd4371",
+      "userId": "7149b77a-4729-48c8-884c-8db5678b0dd5",
+      "badgeId": "first_log",
+      "earnedAt": "2026-01-19T01:42:59.150Z"
+    },
+    {
+      "id": "e5700d15-0f24-4df4-92b1-a9cfb32b192e",
+      "userId": "7149b77a-4729-48c8-884c-8db5678b0dd5",
+      "badgeId": "first_workout",
+      "earnedAt": "2026-01-19T01:42:59.166Z"
+    }
+  ],
   "xpEvents": [
     {
       "id": "18972cd0-c810-4a86-84c2-096568f8fa4e",
@@ -356,6 +390,14 @@
       "sourceId": "798a8b2d-d4be-4c61-8875-5bc5fe7d3b94",
       "xp": 26,
       "createdAt": "2026-01-15T01:53:09.011Z"
+    },
+    {
+      "id": "7e21ba47-21aa-46a1-9e71-0f0401d5b2c1",
+      "userId": "7149b77a-4729-48c8-884c-8db5678b0dd5",
+      "sourceType": "workout",
+      "sourceId": "e18e5148-585c-4a6b-8517-a2adafda42f9",
+      "xp": 26,
+      "createdAt": "2026-01-19T00:51:40.932Z"
     }
   ]
 }

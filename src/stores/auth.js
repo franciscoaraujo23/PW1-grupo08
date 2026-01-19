@@ -62,7 +62,7 @@ export const useAuthStore = defineStore('auth', {
 
       const user = await registerUser({ name, email, password })
 
-      this.user = { id: user.id, name: user.name, email: user.email, role: user.role }
+      this.user = { id: user.id, name: user.name, email: user.email, role: user.role, avatarUrl: user.avatarUrl || '' }
       this.token = `mock_${crypto.randomUUID()}`
       this.persist()
       return this.user

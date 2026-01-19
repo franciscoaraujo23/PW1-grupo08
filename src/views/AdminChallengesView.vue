@@ -193,7 +193,7 @@ function applyTemplate(kind) {
 </script>
 
 <template>
-  <section style="display:grid; gap:14px;">
+  <section class="page" style="display:grid; gap:14px;">
     <div class="card">
       <h1 style="margin:0;">Admin · Challenges</h1>
       <p class="small" style="margin-top:8px;">

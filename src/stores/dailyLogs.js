@@ -3,6 +3,7 @@ import { api } from '../services/api'
 import { useAuthStore } from './auth'
 import { useUiStore } from './ui'
 import { useGamificationStore } from './gamification'
+import { useBadgesStore } from './badges'
 
 
 export const useDailyLogStore = defineStore('dailyLogs', {
@@ -122,6 +123,10 @@ export const useDailyLogStore = defineStore('dailyLogs', {
 
       // atribuir XP diário (no máximo 1x por log)
       await g.awardDailyXp(saved)
+
+      const b = useBadgesStore()
+      await b.syncMine({ silent: false })
+
 
       return saved
     },

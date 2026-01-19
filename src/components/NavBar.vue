@@ -25,7 +25,7 @@ function logout() {
   <header class="nav">
     <div class="container nav__inner">
       <div class="brand" @click="go('/dashboard')" role="button" tabindex="0">
-        Fitness Tracker
+        <img class="brand__logo" src="../assets/fitness_tracker_logo.png" alt="Fitness Tracker" />
       </div>
 
       <nav class="nav__links" v-if="isAuthed" aria-label="Primary">
@@ -36,15 +36,26 @@ function logout() {
         <RouterLink v-if="isAdmin" class="nav__link nav__link--admin" to="/admin/challenges">Admin</RouterLink>
       </nav>
 
-      <div class="nav__right">
-        <span v-if="isAuthed" class="nav__user small">
-          {{ auth.user?.email }}
-          <span class="nav__role">{{ auth.user?.role }}</span>
-        </span>
+         <div class="nav__right">
+          <button
+            v-if="isAuthed"
+            class="nav__userBtn"
+            type="button"
+            @click="go('/profile')"
+            aria-label="Open profile"
+          >
+            <span class="nav__avatar">{{ (auth.user?.name?.[0] || auth.user?.email?.[0] || '?').toUpperCase() }}</span>
 
-        <button class="btn btn-ghost" v-if="!isAuthed" @click="go('/login')">Login</button>
-        <button class="btn btn-danger" v-else @click="logout">Logout</button>
-      </div>
+            <span class="nav__user small">
+              {{ auth.user?.name || auth.user?.email }}
+              <span class="nav__role">{{ auth.user?.role }}</span>
+            </span>
+          </button>
+
+          <button class="btn btn-ghost" v-if="!isAuthed" @click="go('/login')">Login</button>
+          <button class="btn btn-danger" v-else @click="logout">Logout</button>
+        </div>
+
     </div>
   </header>
 </template>
@@ -149,6 +160,53 @@ function logout() {
   }
   .nav__links::-webkit-scrollbar{ display:none; }
   .nav__user{ display:none; } /* no mobile isto é ruído */
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  cursor:pointer;
+  user-select:none;
+}
+
+.brand__logo{
+  height: 80px;
+  width: auto;
+  display:block;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,.25));
+}
+
+/* chip clicável do user */
+.nav__userBtn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  cursor:pointer;
+  max-width: 420px;
+}
+.nav__userBtn:hover{ background: rgba(255,255,255,.06); }
+.nav__userBtn:active{ transform: translateY(0px); }
+
+.nav__avatar{
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display:grid;
+  place-items:center;
+  font-weight: 900;
+  background: rgba(34,197,94,.14);
+  border: 1px solid rgba(34,197,94,.25);
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+
+/* no mobile escondemos chip para não entupir */
+@media (max-width: 860px){
+  .nav__userBtn{ display:none; }
 }
 
 </style>

@@ -3,6 +3,7 @@ import { api } from '../services/api'
 import { useAuthStore } from './auth'
 import { useUiStore } from './ui'
 import { useGamificationStore } from './gamification'
+import { useBadgesStore } from './badges'
 
 
 export const useWorkoutStore = defineStore('workouts', {
@@ -55,6 +56,10 @@ export const useWorkoutStore = defineStore('workouts', {
 
       const g = useGamificationStore()
       await g.awardWorkoutXp(data)
+
+      const b = useBadgesStore()
+      await b.syncMine({ silent: false })
+
 
       return data
     },

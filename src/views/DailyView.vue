@@ -18,7 +18,7 @@ function select(date) {
 </script>
 
 <template>
-  <section style="display:grid; gap:14px;">
+  <section class="page" style="display:grid; gap:14px;">
     <div class="card">
       <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
         <h1 style="margin:0;">Daily Logs</h1>
